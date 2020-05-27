@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ckeditor.fields import RichTextField
+#from ckeditor.fields import RichTextField
 
 
 class Post(models.Model):
     title = models.CharField(max_length = 100)
     slug = models.SlugField(max_length= 100)
-    body = RichTextField()
+    #body = RichTextField()
+    body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(default='', blank= True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts', default='None' )
